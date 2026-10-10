@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>একটা আবদার আছে 🥹💗</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ffe0ef, #fff0f5, #e8dfff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+  color: #713d60;
+}
+
+.hearts span {
+  position: fixed;
+  bottom: -50px;
+  font-size: 23px;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .7;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .8; }
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 30px 22px;
+  text-align: center;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.9);
+  border-radius: 30px;
+  box-shadow: 0 15px 60px #c77ca638;
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 2;
+  animation: appear .9s ease both;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(30px) scale(.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.top {
+  display: inline-block;
+  background: #ffe3f0;
+  color: #c04c87;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.emoji {
+  font-size: 66px;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+h1 {
+  font-size: 29px;
+  line-height: 1.5;
+  margin: 12px 0;
+  color: #b43d7c;
+}
+
+p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.highlight {
+  color: #d34491;
+  font-weight: 700;
+}
+
+.note {
+  background: #fff1f7;
+  padding: 17px 14px;
+  border-radius: 18px;
+  margin: 22px 0;
+  border: 1px dashed #efa2c8;
+}
+
+.note p {
+  font-size: 14px;
+}
+
+button {
+  border: none;
+  padding: 13px 16px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+  font-family: inherit;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 7px 20px #db83b755;
+}
+
+.yes {
+  background: linear-gradient(135deg, #f57bb5, #dc4c95);
+  color: white;
+}
+
+.no {
+  background: white;
+  color: #bd5688;
+  border: 1px solid #f1bfd7;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#result {
+  display: none;
+  margin-top: 22px;
+  padding: 17px 12px;
+  border-radius: 18px;
+  background: #fff0f7;
+  animation: appear .5s ease;
+}
+
+#result h2 {
+  font-size: 21px;
+  margin-bottom: 8px;
+  color: #c83f88;
+}
+
+.footer {
+  margin-top: 22px;
+  font-size: 11px;
+  opacity: .7;
+}
+
+#letter {
+  display: none;
+  margin-top: 17px;
+  animation: appear .5s ease;
+}
+
+.letter-paper {
+  background: white;
+  border-radius: 15px;
+  padding: 18px;
+  border: 1px solid #ffd2e5;
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@media (max-width: 380px) {
+  h1 { font-size: 25px; }
+  .card { padding: 25px 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+<canvas id="confetti"></canvas>
+
+<main class="card">
+  <div class="top">💌 IMPORTANT FRIENDSHIP MATTER</div>
+
+  <div class="emoji">🥹💗</div>
+
+  <h1>এই শোন, তোর কাছে<br>একটা আবদার আছে!</h1>
+
+  <p>
+    তুই তো আমার অনেক ভালো একটা বন্ধু।<br>
+    তাই ভাবলাম, একটা কথা তোকে বলেই ফেলি! 🙈
+  </p>
+
+  <div class="note">
+    <p>আসলে ব্যাপারটা হচ্ছে...</p>
+    <h2 style="margin: 10px 0; color:#cf438a;">
+      তোর বান্ধবীর সাথে<br>আমার সেটিং করিয়ে দে না! 😭💘
+    </h2>
+    <p>
+      আমি ভালো ছেলে হওয়ার চেষ্টা করব! 🤧<br>
+      বাকি পরিচয়টা সুন্দরভাবে হোক, কী বলিস? 🌷
+    </p>
+  </div>
+
+  <p>বল না প্লিজ, আমার জন্য একটু চেষ্টা করবি? 🥺</p>
+
+  <div class="buttons">
+    <button class="yes" onclick="answerYes()">
+      আচ্ছা, দেখি কী করা যায়! 💗
+    </button>
+
+    <button class="no" onclick="answerNo()">
+      এত সহজ না! 😏
+    </button>
+  </div>
+
+  <div id="result">
+    <h2 id="resultTitle"></h2>
+    <p id="resultText"></p>
+
+    <button class="yes" style="margin-top:14px"
+      onclick="openLetter()">
+      একটা চিঠি আছে 💌
+    </button>
+
+    <div id="letter">
+      <div class="letter-paper">
+        <h3 style="margin-bottom:10px;color:#c83f88">
+          আমার প্রিয় বন্ধু 🌸
+        </h3>
+        <p>
+          তুই যদি আমার জন্য একটু চেষ্টা করিস,
+          তাহলে অনেক ভালো লাগবে! 😭💗
+          <br><br>
+          তবে সবার আগে তোদের বন্ধুত্ব,
+          আর যার সাথে পরিচয় করাবি তার ইচ্ছাটাও
+          আমার কাছে গুরুত্বপূর্ণ। 🫶
+          <br><br>
+          এখন বল, আমার জন্য কিছু করবি না? 🥹
+        </p>
+        <p style="margin-top:12px;font-weight:bold">
+          — তোর হতভাগা বন্ধু 😂❤️
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    MADE WITH 💗, HOPE & LITTLE BIT OF PAGLAMI
+  </div>
+</main>
+
+<script>
+const heartBox = document.getElementById("hearts");
+
+const symbols = ["💗", "💕", "💖", "🌸", "💘", "✨"];
+
+for (let i = 0; i < 24; i++) {
+  const heart = document.createElement("span");
+  heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = (7 + Math.random() * 10) + "s";
+  heart.style.animationDelay = (-Math.random() * 15) + "s";
+  heart.style.fontSize = (15 + Math.random() * 18) + "px";
+  heartBox.appendChild(heart);
+}
+
+function answerYes() {
+  document.getElementById("result").style.display = "block";
+  document.getElementById("resultTitle").textContent =
+    "ইয়েইইই! 🥹💖";
+
+  document.getElementById("resultText").textContent =
+    "এই তো আমার ভালো বন্ধু! তোর ওপর আমার ভরসা আছে। 😂🌷";
+
+  document.getElementById("letter").style.display = "none";
+  celebrate();
+}
+
+function answerNo() {
+  document.getElementById("result").style.display = "block";
+  document.getElementById("resultTitle").textContent =
+    "আহারে আমার কপাল! 😭";
+
+  document.getElementById("resultText").textContent =
+    "বন্ধু হয়েও এই ব্যবহার! একবার ভেবে দেখ না প্লিজ! 🥹😂";
+
+  document.getElementById("letter").style.display = "none";
+}
+
+function openLetter() {
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+  letter.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function celebrate() {
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const pieces = Array.from({ length: 100 }, () => ({
+    x: Math.random() * canvas.width,
+    y: -Math.random() * canvas.height,
+    size: 4 + Math.random() * 6,
+    speed: 2 + Math.random() * 4,
+    angle: Math.random() * 6,
+    spin: (Math.random() - 0.5) * 0.15
+  }));
+
+  let frame = 0;
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    pieces.forEach(p => {
+      p.y += p.speed;
+      p.angle += p.spin;
+      p.x += Math.sin(p.angle) * 1.5;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = ["#ff80b5", "#ffc857", "#d9a7ff",
+                       "#ffabc7", "#ffffff"][Math.floor(Math.random() * 5)];
+      ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+      ctx.restore();
+    });
+
+    frame++;
+    if (frame < 130) {
+      requestAnimationFrame(draw);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  draw();
+}
+</script>
+
+</body>
+</html>
